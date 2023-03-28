@@ -8,6 +8,8 @@
           pkg:
            - nodejs
            - npm
+           - tar
+           - unzip
       - name: copy node modules and unpacking
         copy:
           src: /home/ansible/1.zip
