@@ -1,17 +1,10 @@
 ---
  - name: nginx installation 
    hosts: all
+   become: true
    tasks:
-           - name: apt install
-             apt: 
-                     update_cache: yes 
-                     update_cache_time: 3600
-                     state: latest
-                     name: nginx
-                     become: root
-           - name: service start
-             service:
-                     name: nginx
-                     state: started
-
-
+      - name: install nginx
+        apt:
+          name: nginx
+          state: present
+          update_cache: yes
