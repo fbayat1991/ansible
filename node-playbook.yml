@@ -1,0 +1,19 @@
+---
+  - name: node & npm installation
+    hosts: all
+    become: true
+    tasks: 
+      - name: node installation
+        apt:
+          pkg:
+           - nodejs
+           - npm
+      - name: copy node modules and unpacking
+        copy:
+          src: /home/ansible/1.zip
+          dest: /home/ansible/1.zip
+      - name: unpack file
+        unarchive: 
+          src: /home/ansible/1.zip
+          dest: /home/ansible
+          remote_src: yes
